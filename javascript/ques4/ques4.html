@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Counter </title>
+  <script>
+  function countClicks() {
+          if (localStorage.clickcount) {
+              localStorage.clickcount = Number(localStorage.clickcount)+1;
+          } else {
+              localStorage.clickcount = 1;
+          }
+          document.getElementById("count").innerHTML = "clicked " + localStorage.clickcount + " time(s).";
+        }
+  </script>
+  <style>
+    #date {
+      position: fixed;
+      right: 10%;
+      top: 5%;
+    }
+    #count {
+      position: fixed;
+      left: 40%;
+      top: 40%;
+    }
+    button {
+      position: fixed;
+      left: 45%;
+      top: 30%;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<p id="date"> </p>
+<script>
+if(localStorage.count)
+{
+document.getElementById("date").innerHTML = localStorage.setDate;
+localStorage.setDate = Date();
+}
+else
+{
+document.getElementById("date").innerHTML = Date();
+localStorage.count = 1;
+localStorage.setDate = Date();
+}
+</script>
+
+<p><button onclick="countClicks()" type="button">Click me!</button></p>
+<div id="count"></div>
+
+
+
+</body>
+</html>

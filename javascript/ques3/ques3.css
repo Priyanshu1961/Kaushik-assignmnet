@@ -1,0 +1,14 @@
+#form {
+  position: fixed;
+  bottom: 10%;
+  left: 5%;
+}
+table {
+  position: fixed;
+  text-align: center;
+  left:30%;
+  top: 20%;
+}
+td {
+  text-align: center;
+}
