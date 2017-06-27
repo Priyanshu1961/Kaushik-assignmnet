@@ -1,0 +1,9 @@
+<h1> list of leads</h1>
+
+<ul>
+  <% @leads.each do |lead| %>
+      <li><a href="/leads/<%=lead[:id]%>"><%= lead.lead_name %></li>
+  <% end %>
+</ul>
+<%= link_to 'Add new Lead', new_lead_path %>
+<p><%= link_to 'list of employees', employees_path %></p>

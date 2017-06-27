@@ -1,0 +1,22 @@
+#list {
+  border: 1px solid;
+  border-collapse: collapse;
+  position: fixed;
+  width: 100%;
+  top: 40%;
+}
+td,th,tr {
+  border: 1px solid;
+}
+#playlist {
+  position: fixed;
+  width: 100%;
+  top: 5%;
+  border: 1px solid;
+  border-collapse: collapse;
+}
+#form {
+  position: fixed;
+  width: 100%;
+  bottom: 10%;
+}

@@ -1,0 +1,51 @@
+#cbox1 {
+  position: fixed;
+  left: 35%;
+  top: 30%;
+  z-index: 4;
+}
+#cbox2 {
+  position: fixed;
+  right: 35%;
+  top: 30%;
+  z-index: 4;
+}
+#cbox3 {
+  position: fixed;
+  left: 35%;
+  bottom: 30%;
+  z-index: 4;
+}
+#cbox4 {
+  position: fixed;
+  right: 35%;
+  bottom: 30%;
+  z-index: 4;
+}
+#block1 {
+  position: fixed;
+  left: 15%;
+  top: 10%;
+  background-color: green;
+  z-index: 2;
+  width: 70%;
+  height: 80%;
+}
+#block2 {
+  position: fixed;
+  left: 25%;
+  top: 20%;
+  background-color: yellow;
+  z-index: 3;
+  width: 20%;
+  height: 60%;
+}
+  #block3 {
+    position: fixed;
+    right: 25%;
+    top: 20%;
+    background-color: blue;
+    z-index: 3;
+    width: 20%;
+    height: 60%;
+}
