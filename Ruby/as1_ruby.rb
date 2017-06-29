@@ -1,32 +1,27 @@
 #start of Program
-puts "enter the size of the grid"
-$size = gets.chomp.to_i
-
-#Initializing Array
-$array = Array.new($size){Array.new($size, 0)}
-
-#sample Data
-# $array[0][0] = 10
-# $array[1][1] = 20
-# $array[2][2] = 30
-# $array[3][3] = 40
-# $array[4][4] = 50
-
-# Hash to find the index
-$column_hash = {
-  A: 0,
-  B: 1,
-  C: 2,
-  D: 3,
-  E: 4,
-  F: 5,
-  G: 6,
-  H: 7,
-  I: 8,
-  J: 9
-}
-$expression_hash = Hash.new
-$dependent_hash = Hash.new
+def startProgram()
+  puts "enter the size of the grid"
+  $size = gets.chomp.to_i
+  $array = Array.new($size){Array.new($size, 0)}
+  for i in 0...$size do
+    $array[i][i] = rand(1..9)*10
+  end
+  # zHash to find the index
+  $column_hash = {
+    A: 0,
+    B: 1,
+    C: 2,
+    D: 3,
+    E: 4,
+    F: 5,
+    G: 6,
+    H: 7,
+    I: 8,
+    J: 9
+  }
+  $expression_hash = Hash.new
+  $dependent_hash = Hash.new
+end
 # Function to print the array
 def print_array
   $array.each do |r|
@@ -81,7 +76,7 @@ def assign_value
   else
     puts 'invalid Input Try again'
     assign_value
-  end  
+  end
 end
 
 def assign_relation
@@ -112,7 +107,7 @@ def interface
     when 2 #to define an expression
       loop do
         flag = assign_relation
-        if (!flag)
+        unless (flag)
           puts "\nInvalid expression format,please enter the expression in the given format only"
         else
           break
@@ -128,5 +123,6 @@ def interface
   end
 end
 
+startProgram
 #interface to choose option
 interface

@@ -22,7 +22,7 @@ end
 def replaceNonDigits(inp)
   size = inp.size
   for i in 0...size do
-    if !(inp[i].ord>=48 && inp[i].ord <=57)&&(inp[i] != "-")
+    unless (inp[i].ord >= 48 && inp[i].ord <= 57) || (inp[i] == "-")
       inp[i] = " "
     end
   end
