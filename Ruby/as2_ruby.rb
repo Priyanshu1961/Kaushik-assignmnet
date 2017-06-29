@@ -1,21 +1,33 @@
-class EmptyStringError < NoIntegerError
-  attr_reader :msg
-  def initialize()
-      @msg="The given string is empty"
-  end
-end
-class NoIntegerError < NoPositiveIntegerError
-  attr_reader :msg
-  def initialize()
-      @msg="The given string has no integers"
-  end
-end
 class NoPositiveIntegerError < StandardError
   attr_reader :msg
   def initialize()
-      @msg="The given string contains no positive integers"
+    @msg="The given string contains no positive integers"
   end
 end
+
+class NoIntegerError < NoPositiveIntegerError
+  attr_reader :msg
+  def initialize()
+    @msg="The given string has no integers"
+  end
+end
+
+class EmptyStringError < NoIntegerError
+  attr_reader :msg
+  def initialize()
+    @msg="The given string is empty"
+  end
+end
+
+def replaceNonDigits(inp)
+  size = inp.size
+  for i in 0...size do
+    if !(inp[i].ord>=48 && inp[i].ord <=57)&&(inp[i] != "-")
+      inp[i] = " "
+    end
+  end
+end
+
 def calculate_avg
   puts "input string"
   inp = gets.chomp
@@ -30,21 +42,17 @@ def calculate_avg
     return
   end
   #loop to replace all the non integers in the string with " "
-  for i in 0...size do
-    if !(inp[i].ord>=48 && inp[i].ord <=57)&&(inp[i] != "-")
-      inp[i] = " "
-    end
-  end
+  replaceNonDigits(inp)
   #extracting integers from the string
   values = inp.split(" ")
   #check for integers
-    begin
-      raise NoIntegerError if values.count==0
-      rescue NoIntegerError => e
-      puts e.class
-      puts e.msg# "my thing"
-      return
-    end
+  begin
+    raise NoIntegerError if values.count==0
+    rescue NoIntegerError => e
+    puts e.class
+    puts e.msg# "my thing"
+    return
+  end
   sum = 0
   count = 0
   values.each do |i|
