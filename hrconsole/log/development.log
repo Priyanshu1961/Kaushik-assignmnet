@@ -7811,3 +7811,522 @@ Processing by LeadsController#show as HTML
 Completed 200 OK in 47ms (Views: 26.7ms | ActiveRecord: 1.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-06-30 10:45:25 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 328ms (Views: 321.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:45:27 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 70ms (Views: 34.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/employees/8" for 127.0.0.1 at 2017-06-30 10:45:29 +0530
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering employees/show.html.erb within layouts/application
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 8]]
+  [1m[36mLead Load (0.2ms)[0m  [1m[34mSELECT  "leads".* FROM "leads" WHERE "leads"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered employees/show.html.erb within layouts/application (343.8ms)
+Completed 200 OK in 392ms (Views: 381.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:45:37 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 30ms (Views: 27.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leads" for 127.0.0.1 at 2017-06-30 10:45:41 +0530
+Processing by LeadsController#index as HTML
+  Rendering leads/index.html.erb within layouts/application
+  [1m[36mLead Load (0.2ms)[0m  [1m[34mSELECT "leads".* FROM "leads"[0m
+  Rendered leads/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 27ms (Views: 25.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:45:42 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leads" for 127.0.0.1 at 2017-06-30 10:45:43 +0530
+Processing by LeadsController#index as HTML
+  Rendering leads/index.html.erb within layouts/application
+  [1m[36mLead Load (0.3ms)[0m  [1m[34mSELECT "leads".* FROM "leads"[0m
+  Rendered leads/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/leads/1" for 127.0.0.1 at 2017-06-30 10:45:45 +0530
+Processing by LeadsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLead Load (0.1ms)[0m  [1m[34mSELECT  "leads".* FROM "leads" WHERE "leads"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."lead_id" = ?[0m  [["lead_id", 1]]
+  Rendering leads/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 10]]
+  Rendered leads/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 92ms (Views: 35.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/leads" for 127.0.0.1 at 2017-06-30 10:45:47 +0530
+Processing by LeadsController#index as HTML
+  Rendering leads/index.html.erb within layouts/application
+  [1m[36mLead Load (0.2ms)[0m  [1m[34mSELECT "leads".* FROM "leads"[0m
+  Rendered leads/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 42ms (Views: 41.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leads/2" for 127.0.0.1 at 2017-06-30 10:45:48 +0530
+Processing by LeadsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mLead Load (0.2ms)[0m  [1m[34mSELECT  "leads".* FROM "leads" WHERE "leads"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."lead_id" = ?[0m  [["lead_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 11]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 9]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 14]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 13]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 13]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 9]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 14]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 9]]
+  Rendering leads/show.html.erb within layouts/application
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 13]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 14]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 9]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 11]]
+  Rendered leads/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 49ms (Views: 29.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/leads" for 127.0.0.1 at 2017-06-30 10:45:49 +0530
+Processing by LeadsController#index as HTML
+  Rendering leads/index.html.erb within layouts/application
+  [1m[36mLead Load (0.2ms)[0m  [1m[34mSELECT "leads".* FROM "leads"[0m
+  Rendered leads/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leads/3" for 127.0.0.1 at 2017-06-30 10:45:50 +0530
+Processing by LeadsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mLead Load (0.1ms)[0m  [1m[34mSELECT  "leads".* FROM "leads" WHERE "leads"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."lead_id" = ?[0m  [["lead_id", 3]]
+  Rendering leads/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 12]]
+  Rendered leads/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 25ms (Views: 21.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/leads" for 127.0.0.1 at 2017-06-30 10:45:51 +0530
+Processing by LeadsController#index as HTML
+  Rendering leads/index.html.erb within layouts/application
+  [1m[36mLead Load (0.2ms)[0m  [1m[34mSELECT "leads".* FROM "leads"[0m
+  Rendered leads/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/leads/4" for 127.0.0.1 at 2017-06-30 10:45:52 +0530
+Processing by LeadsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mLead Load (0.1ms)[0m  [1m[34mSELECT  "leads".* FROM "leads" WHERE "leads"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."lead_id" = ?[0m  [["lead_id", 4]]
+  Rendering leads/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 8]]
+  Rendered leads/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 36ms (Views: 31.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/leads" for 127.0.0.1 at 2017-06-30 10:45:56 +0530
+Processing by LeadsController#index as HTML
+  Rendering leads/index.html.erb within layouts/application
+  [1m[36mLead Load (0.3ms)[0m  [1m[34mSELECT "leads".* FROM "leads"[0m
+  Rendered leads/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 29ms (Views: 27.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:45:57 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2017-06-30 10:46:01 +0530
+Processing by EmployeesController#new as HTML
+  Rendering employees/new.html.erb within layouts/application
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  [1m[36mLead Load (0.2ms)[0m  [1m[34mSELECT "leads".* FROM "leads"[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."project" ASC[0m
+  Rendered employees/_form.html.erb (116.2ms) [cache miss]
+  Rendered employees/new.html.erb within layouts/application (203.4ms)
+Completed 200 OK in 255ms (Views: 219.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/skills" for 127.0.0.1 at 2017-06-30 10:46:13 +0530
+Processing by SkillsController#index as HTML
+  Rendering skills/index.html.erb within layouts/application
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  Rendered skills/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/skills" for 127.0.0.1 at 2017-06-30 10:47:27 +0530
+Processing by SkillsController#index as HTML
+  Rendering skills/index.html.erb within layouts/application
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  Rendered skills/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-30 10:47:32 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 30ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/skills" for 127.0.0.1 at 2017-06-30 10:47:34 +0530
+Processing by SkillsController#index as HTML
+  Rendering skills/index.html.erb within layouts/application
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  Rendered skills/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-30 10:53:46 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-30 10:54:13 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2017-06-30 10:54:15 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2017-06-30 10:54:16 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2017-06-30 10:54:16 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2017-06-30 10:54:16 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:54:18 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 24ms (Views: 22.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:55:30 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2017-06-30 10:55:32 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 29ms (Views: 28.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2017-06-30 10:55:55 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/skills" for 127.0.0.1 at 2017-06-30 10:55:56 +0530
+Processing by SkillsController#index as HTML
+  Rendering skills/index.html.erb within layouts/application
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  Rendered skills/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 35ms (Views: 33.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/skills" for 127.0.0.1 at 2017-06-30 10:56:11 +0530
+Processing by SkillsController#index as HTML
+  Rendering skills/index.html.erb within layouts/application
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  Rendered skills/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/skills/new" for 127.0.0.1 at 2017-06-30 10:56:14 +0530
+Processing by SkillsController#new as HTML
+  Rendering skills/new.html.erb within layouts/application
+  Rendered skills/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 63ms (Views: 20.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/skills/new" for 127.0.0.1 at 2017-06-30 10:56:55 +0530
+Processing by SkillsController#new as HTML
+  Rendering skills/new.html.erb within layouts/application
+  Rendered skills/new.html.erb within layouts/application (221.9ms)
+Completed 500 Internal Server Error in 224ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `skills_index_path' for #<#<Class:0x007fb9e5a577a0>:0x007fb9d85dc9f8>
+Did you mean?  skills_path):
+     8: 
+     9:   <%= f.submit %>
+    10:   <% end %>
+    11:   <%= link_to 'back', skills_index_path %>
+  
+app/views/skills/new.html.erb:11:in `_app_views_skills_new_html_erb___2077441325749847359_70218087852480'
+Started GET "/skills/new" for 127.0.0.1 at 2017-06-30 10:57:18 +0530
+Processing by SkillsController#new as HTML
+  Rendering skills/new.html.erb within layouts/application
+  Rendered skills/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/skills" for 127.0.0.1 at 2017-06-30 10:57:19 +0530
+Processing by SkillsController#index as HTML
+  Rendering skills/index.html.erb within layouts/application
+  [1m[36mSkill Load (0.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  Rendered skills/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 34ms (Views: 32.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2017-06-30 10:57:41 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 35ms (Views: 33.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:57:43 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 31ms (Views: 29.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2017-06-30 10:57:45 +0530
+Processing by EmployeesController#new as HTML
+  Rendering employees/new.html.erb within layouts/application
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  [1m[36mLead Load (0.6ms)[0m  [1m[34mSELECT "leads".* FROM "leads"[0m
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."project" ASC[0m
+  Rendered employees/_form.html.erb (19.5ms) [cache miss]
+  Rendered employees/new.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 56ms (Views: 53.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2017-06-30 10:58:08 +0530
+Processing by EmployeesController#new as HTML
+  Rendering employees/new.html.erb within layouts/application
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  [1m[36mLead Load (0.2ms)[0m  [1m[34mSELECT "leads".* FROM "leads"[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."project" ASC[0m
+  Rendered employees/_form.html.erb (10.5ms) [cache miss]
+  Rendered employees/new.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:58:09 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:58:31 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:58:57 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:59:13 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:59:27 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2017-06-30 10:59:29 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:59:31 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 24ms (Views: 23.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2017-06-30 10:59:33 +0530
+Processing by EmployeesController#new as HTML
+  Rendering employees/new.html.erb within layouts/application
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  [1m[36mLead Load (0.2ms)[0m  [1m[34mSELECT "leads".* FROM "leads"[0m
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."project" ASC[0m
+  Rendered employees/_form.html.erb (14.6ms) [cache miss]
+  Rendered employees/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 43ms (Views: 40.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:59:34 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/employees/8" for 127.0.0.1 at 2017-06-30 10:59:36 +0530
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering employees/show.html.erb within layouts/application
+  [1m[36mSkill Load (0.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 8]]
+  [1m[36mLead Load (0.1ms)[0m  [1m[34mSELECT  "leads".* FROM "leads" WHERE "leads"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered employees/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 28ms (Views: 25.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:59:40 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/employees/13" for 127.0.0.1 at 2017-06-30 10:59:41 +0530
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering employees/show.html.erb within layouts/application
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" INNER JOIN "employees_skills" ON "skills"."id" = "employees_skills"."skill_id" WHERE "employees_skills"."employee_id" = ?[0m  [["employee_id", 13]]
+  [1m[36mLead Load (0.1ms)[0m  [1m[34mSELECT  "leads".* FROM "leads" WHERE "leads"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered employees/show.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 31ms (Views: 29.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2017-06-30 10:59:46 +0530
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2017-06-30 10:59:47 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 35ms (Views: 33.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/skills" for 127.0.0.1 at 2017-06-30 10:59:48 +0530
+Processing by SkillsController#index as HTML
+  Rendering skills/index.html.erb within layouts/application
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  Rendered skills/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/skills/new" for 127.0.0.1 at 2017-06-30 10:59:49 +0530
+Processing by SkillsController#new as HTML
+  Rendering skills/new.html.erb within layouts/application
+  Rendered skills/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/skills" for 127.0.0.1 at 2017-06-30 10:59:50 +0530
+Processing by SkillsController#index as HTML
+  Rendering skills/index.html.erb within layouts/application
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  Rendered skills/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 26ms (Views: 24.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2017-06-30 10:59:53 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-30 11:19:37 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 153ms (Views: 146.0ms | ActiveRecord: 0.0ms)
+
+
