@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Directory</title>
+    <style>
+      #list_area {
+        position: fixed;
+        right: 20%;
+        top: 20%;
+      }
+      #root_display {
+        position: fixed;
+        right: 20%;
+        top: 15%;
+      }
+      #move_up {
+        position: fixed;
+        right: 10%;
+        top: 15%;
+      }
+      .errors {
+        position: fixed;
+        background-color: red;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="display">
+      <div id="path">The Path is  </div>
+      <div id="list_area">The current folder contains :  </div>
+      <div><strong  id="root_display"></strong></div>
+      <div id="create"></div>
+      <button id="move_up" type="button" name="button">move up</button>
+    </div>
+    <div id="file_error" class="errors"><strong>File with same name already exists in the folder</strong></div>
+    <div id="empty_name" class="errors"><strong>File name cannot be empty</strong></div>
+
+
+    <script src="destination/app.js"></script>
+  </body>
+</html>
