@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Directory with modules</title>
+    <style>
+      .explorer {
+        position: absolute;
+        left: 60%;
+        top: 30%
+      }
+      #path {
+        position: absolute;
+        right: 10%;
+        top: 10%;
+        background-color: green
+      }
+
+       #empty_name, #file_error {
+         position: absolute;
+         top: 10%;
+         left: 20%;
+         background-color: red
+
+      }
+      #no_search_results, #empty_search {
+        position: absolute;
+        top: 15%;
+        left: 15%;
+        background-color: red
+      }
+      #move_up {
+        position: absolute;
+        right: -30%;
+      }
+      #no_parent {
+        position: absolute;
+        background-color: red;
+        left: 75%;
+        top: 20%;
+      }
+      </style>
+  </head>
+  <body>
+      <div><strong id="file_error">File with same name already exists in the folder</strong></div>
+      <div><strong id="empty_name" >File name cannot be empty</strong></div>
+      <div><strong id="empty_search" >Searh name cannot be empty</strong></div>
+      <div><strong id="no_search_results" >no files or folders matching entered search</strong></div>
+      <div><strong id="no_parent" >Reached Root Folder</strong></div>
+
+    <div class="forms">
+      <div class="create_form">
+        <input id="name_input" type="text" value="" placeholder="Enter the file/folder name">
+        <button id="create" type="submit" name="button" >create file/folder</button>
+      </div>
+      <div class="search_form">
+        <input id="search_input" type="text" name="" value="" placeholder="enter name to search" />
+        <button id="search" type="submit" name="button">search</button>
+      </div>
+    </div>
+    <div class="lists">
+      <div class="explorer">
+        <div><strong id="path"></strong></div>
+        <div><strong  id="root_display"></strong></div>
+        <button id="move_up" type="button" name="button">move up</button>
+        <div id="list_area"><strong>The current folder contains :  <strong></div>
+      </div>
+      <div id="search_area">The search Results :  </div>
+    </div>
+
+
+
+
+    <script src="destination/app.js" charset="utf-8"></script>
+  </body>
+</html>
