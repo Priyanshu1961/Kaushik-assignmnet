@@ -1,0 +1,23 @@
+with
+a as (select state, row_number() over (order by "2006" desc) as rn from accidents limit 3),
+b as (select state, row_number() over (order by "2007" desc) as rn from accidents limit 3),
+c as (select state, row_number() over (order by "2008" desc) as rn from accidents limit 3),
+d as (select state, row_number() over (order by "2009" desc) as rn from accidents limit 3),
+e as (select state, row_number() over (order by "2010" desc) as rn from accidents limit 3),
+f as (select state, row_number() over (order by "2011" desc) as rn from accidents limit 3),
+g as (select state, row_number() over (order by "2012" desc) as rn from accidents limit 3) 
+select
+a.state as "2006",
+b.state as "2007",
+c.state as "2008",
+d.state as "2009",
+e.state as "2010",
+f.state as "2011",
+g.state as "2012"
+from a
+inner join b on b.rn=a.rn
+inner join c on c.rn=a.rn
+inner join d on d.rn=a.rn
+inner join e on e.rn=a.rn
+inner join f on f.rn=a.rn
+inner join g on g.rn=a.rn
