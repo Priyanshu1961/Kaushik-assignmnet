@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -68,33 +68,13 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "paths", function() { return paths; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cur_root", function() { return cur_root; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "search", function() { return search; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "searchClick", function() { return searchClick; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveUp", function() { return moveUp; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listClick", function() { return listClick; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getData", function() { return getData; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__File__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Folder__ = __webpack_require__(2);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return listClick; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return moveUp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return search; });
+/* unused harmony export searchClick */
 var _this = this;
 
-
-
-
-// 'use strict';
-
-
-document.getElementById('name_input').value = '';
-
-const paths = {};
-const root = new __WEBPACK_IMPORTED_MODULE_1__Folder__["a" /* Folder */]('root');
-let cur_root = root;
-console.log(root);
-cur_root = root;
-// debugger;
-document.getElementById('path').innerHTML = `The current Directory is: ${cur_root.path}`;
 const getData = () => {
   const input_name = document.getElementById('name_input').value;
   if (input_name === '') {
@@ -105,10 +85,10 @@ const getData = () => {
     } else {
       const input_data = input_name.split('.');
       if (input_data.length - 1) {
-        const obj = new __WEBPACK_IMPORTED_MODULE_0__File__["a" /* File */](input_data[0], input_data[1], cur_root);
+        const obj = new File(input_data[0], input_data[1], cur_root);
         cur_root.addChild(obj);
       } else {
-        const obj = new __WEBPACK_IMPORTED_MODULE_1__Folder__["a" /* Folder */](input_data[0], cur_root);
+        const obj = new Folder(input_data[0], cur_root);
         cur_root.addChild(obj);
       }
       cur_root.generateList();
@@ -137,11 +117,6 @@ const moveUp = () => {
   }
 };
 
-const searchClick = () => {
-  const path = _this.innerHTML;
-  paths[path].parent.setRoot();
-};
-
 const search = () => {
   if (document.getElementById('search_list')) {
     document.getElementById('search_area').removeChild(document.getElementById('search_list'));
@@ -164,10 +139,12 @@ const search = () => {
   document.getElementById('search_area').appendChild(search_list);
   document.getElementById('search_input').value = '';
 };
-document.getElementById('create').addEventListener('click', getData);
-document.getElementById('move_up').addEventListener('click', moveUp);
-document.getElementById('search').addEventListener('click', search);
-console.log(root);
+
+const searchClick = () => {
+  const path = _this.innerHTML;
+  paths[path].parent.setRoot();
+};
+
 
 
 /***/ }),
@@ -175,8 +152,40 @@ console.log(root);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return File; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_js__ = __webpack_require__(0);
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cur_root", function() { return cur_root; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "paths", function() { return paths; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__File_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Folder_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__function__ = __webpack_require__(0);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "listClick", function() { return __WEBPACK_IMPORTED_MODULE_2__function__["b"]; });
+
+
+
+
+
+
+document.getElementById('name_input').value = '';
+
+const paths = {};
+const root_folder = new __WEBPACK_IMPORTED_MODULE_1__Folder_js__["a" /* Folder */]('root');
+const cur_root = root_folder;
+console.log(root_folder);
+
+document.getElementById('path').innerHTML = `The current Directory is: ${cur_root.path}`;
+
+document.getElementById('move_up').addEventListener('click', __WEBPACK_IMPORTED_MODULE_2__function__["c" /* moveUp */]);
+document.getElementById('search').addEventListener('click', __WEBPACK_IMPORTED_MODULE_2__function__["d" /* search */]);
+document.getElementById('create').addEventListener('click', __WEBPACK_IMPORTED_MODULE_2__function__["a" /* getData */]);
+
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export File */
 
 
 class File {
@@ -185,21 +194,21 @@ class File {
     this.extension = extension;
     this.parent = parent;
     this.type = 'file';
-    this.path = `${__WEBPACK_IMPORTED_MODULE_0__app_js__["cur_root"].path}/${name}.${extension}`;
-    __WEBPACK_IMPORTED_MODULE_0__app_js__["paths"][this.path] = this;
+    this.path = `${cur_root.path}/${name}.${extension}`;
+    paths[this.path] = this;
   }
 }
 
 
-// export {cur_root, paths }
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Folder; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_js__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__function__ = __webpack_require__(0);
+
 
 
 class Folder {
@@ -209,11 +218,11 @@ class Folder {
     this.type = 'folder';
     this.children = [];
     if (this.parent) {
-      this.path = `${__WEBPACK_IMPORTED_MODULE_0__app_js__["cur_root"].path}/${name}`;
+      this.path = `${cur_root.path}/${name}`;
     } else {
       this.path = 'root';
     }
-    __WEBPACK_IMPORTED_MODULE_0__app_js__["paths"][this.path] = this;
+    paths[this.path] = this;
   }
 
   addChild(child) {
@@ -233,7 +242,7 @@ class Folder {
       const li = document.createElement('li');
       if (list_data[i].type === 'folder') {
         li.innerHTML = list_data[i].name;
-        li.addEventListener('click', __WEBPACK_IMPORTED_MODULE_0__app_js__["listClick"]);
+        li.addEventListener('click', __WEBPACK_IMPORTED_MODULE_0__function__["b" /* listClick */]);
         li.style.color = 'red';
       } else {
         li.innerHTML = `${list_data[i].name}.${list_data[i].extension}`;
@@ -244,7 +253,6 @@ class Folder {
   }
 
   setRoot() {
-    debugger;
     cur_root = this;
     cur_root.generateList();
     document.getElementById('path').innerHTML = `The current Directory is: ${cur_root.path}`;

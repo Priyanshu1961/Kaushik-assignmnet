@@ -1,4 +1,4 @@
-import { cur_root, paths } from './app.js'
+
 
 class File {
   constructor(name, extension, parent) {
@@ -11,5 +11,4 @@ class File {
   }
 }
 
-export { File };
-// export {cur_root, paths }
+export {File};

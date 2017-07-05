@@ -66,7 +66,6 @@ let cur_root = root;
 
 document.getElementById('path').innerHTML = `The current Directory is: ${cur_root.path}`
 
-
 function getData() {
   const input_name = document.getElementById('name_input').value;
   if (input_name === '') {
@@ -87,7 +86,7 @@ function getData() {
       cur_root.generateList();
     }
   }
-document.getElementById('name_input').value = '';
+  document.getElementById('name_input').value = '';
 }
 
 function listClick() {
@@ -109,6 +108,7 @@ function moveUp() {
     cur_root.parent.setRoot()
   }
 }
+
 function search()  {
   if (document.getElementById('search_list')) {
     document.getElementById('search_area').removeChild(document.getElementById('search_list'))
@@ -132,7 +132,6 @@ function search()  {
   document.getElementById('search_input').value = '';
 }
 function searchClick() {
-  debugger;
   const path = this.innerHTML;
   paths[path].parent.setRoot();
 }

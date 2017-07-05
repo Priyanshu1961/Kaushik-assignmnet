@@ -1,4 +1,6 @@
-import { listClick, cur_root, paths } from './app.js'
+
+import {getData, listClick, moveUp, search, searchClick} from './function'
+
 
 class Folder {
   constructor(name, parent = null) {
@@ -42,11 +44,10 @@ class Folder {
   }
 
   setRoot() {
-    debugger;
     cur_root = this;
     cur_root.generateList();
     document.getElementById('path').innerHTML = `The current Directory is: ${cur_root.path}`
   }
 }
 
-export {Folder};
+export {Folder}
